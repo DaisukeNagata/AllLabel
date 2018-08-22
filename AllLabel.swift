@@ -1,6 +1,5 @@
 import UIKit
 
-
 public let formatter: NumberFormatter = NumberFormatter()
 
 @IBDesignable
@@ -13,13 +12,9 @@ final class AllLabel: UILabel {
     @IBInspectable var cornerRadius: CGFloat = 0.0
     @IBInspectable var borderColor: UIColor = UIColor.clear
     @IBInspectable var borderWidth: CGFloat = 0.0
-    @IBInspectable var priceCount: Int = 0
+    @IBInspectable var priceCount = Int()
     override func awakeFromNib() {
         super.awakeFromNib()
-        guard priceCount == 0 else {
-            self.text = priceCount.JPYString
-            return
-        }
     }
 
     override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
@@ -32,7 +27,15 @@ final class AllLabel: UILabel {
         
         return UIEdgeInsetsInsetRect(textRect, invertedInsets)
     }
-    
+
+    override func layoutSubviews() {
+        guard priceCount == 0 else {
+            self.text = priceCount.JPYString
+            return
+        }
+        super.layoutSubviews()
+    }
+
     override func drawText(in rect: CGRect) {
         self.layer.cornerRadius = cornerRadius
         self.clipsToBounds = (cornerRadius > 0)
@@ -40,29 +43,28 @@ final class AllLabel: UILabel {
         self.layer.borderWidth = borderWidth
         super.drawText(in: UIEdgeInsetsInsetRect(rect, textInsets))
     }
-
 }
 
-extension EdgeInsetLabel {
+extension AllLabel {
 
     @IBInspectable
     var topTextInset: CGFloat {
         set { textInsets.top = newValue }
         get { return textInsets.top }
     }
-    
+
     @IBInspectable
     var leftTextInset: CGFloat {
         set { textInsets.left = newValue }
         get { return textInsets.left }
     }
-    
+
     @IBInspectable
     var bottomTextInset: CGFloat {
         set { textInsets.bottom = newValue }
         get { return textInsets.bottom }
     }
-    
+
     @IBInspectable
     var rightTextInset: CGFloat {
         set { textInsets.right = newValue }
@@ -77,17 +79,14 @@ public extension Int {
         return formatter.string(from: self as NSNumber) ?? ""
     }
 
-    // カンマ区切りString
     var formattedJPString: String {
         return formattedString(style: .decimal, localeIdentifier: "ja_JP")
     }
 
-    // 日本円表記のString
     var JPYString: String {
         return formattedString(style: .currency, localeIdentifier: "ja_JP")
     }
 
-    // USドル表記のString
     var USDString: String {
         return formattedString(style: .currency, localeIdentifier: "en_US")
     }
