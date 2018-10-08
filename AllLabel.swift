@@ -18,14 +18,14 @@ final class AllLabel: UILabel {
     }
 
     override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
-        let insetRect = UIEdgeInsetsInsetRect(bounds, textInsets)
+        let insetRect = bounds.inset(by: textInsets)
         let textRect = super.textRect(forBounds: insetRect, limitedToNumberOfLines: numberOfLines)
         let invertedInsets = UIEdgeInsets(top: -textInsets.top,
                                           left: -textInsets.left,
                                           bottom: -textInsets.bottom,
                                           right: -textInsets.right)
         
-        return UIEdgeInsetsInsetRect(textRect, invertedInsets)
+        return textRect.inset(by: invertedInsets)
     }
 
     override func layoutSubviews() {
@@ -41,7 +41,7 @@ final class AllLabel: UILabel {
         self.clipsToBounds = (cornerRadius > 0)
         self.layer.borderColor = borderColor.cgColor
         self.layer.borderWidth = borderWidth
-        super.drawText(in: UIEdgeInsetsInsetRect(rect, textInsets))
+        super.drawText(in: rect.inset(by: textInsets))
     }
 }
 
