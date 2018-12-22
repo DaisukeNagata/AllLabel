@@ -1,3 +1,11 @@
+//
+//  AllLabel.swift
+//  AllLabel
+//
+//  Created by 永田大祐 on 2018/12/22.
+//  Copyright © 2018 永田大祐. All rights reserved.
+//
+
 import UIKit
 
 public let formatter: NumberFormatter = NumberFormatter()
@@ -24,7 +32,7 @@ final class AllLabel: UILabel {
                                           left: -textInsets.left,
                                           bottom: -textInsets.bottom,
                                           right: -textInsets.right)
-        
+
         return textRect.inset(by: invertedInsets)
     }
 
