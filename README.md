@@ -1,7 +1,7 @@
 # AllLabel
-
 #### You can change round corners, border lines, margins with StoryBoard. Please set the class.
 
+<img src="https://user-images.githubusercontent.com/16457165/50370868-f2c89680-05f1-11e9-96df-def362286cc1.png" width="300">
 #### An example of entering an amount.
 
 ```ruby
