@@ -18,12 +18,13 @@ final class AllLabel: UILabel {
     }
 
     @IBInspectable var cornerRadius: CGFloat = 0.0
+
     @IBInspectable var borderColor: UIColor = UIColor.clear
+
     @IBInspectable var borderWidth: CGFloat = 0.0
+
     @IBInspectable var priceCount = Int()
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+
 
     override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
         let insetRect = bounds.inset(by: textInsets)
@@ -37,6 +38,8 @@ final class AllLabel: UILabel {
     }
 
     override func layoutSubviews() {
+        super.layoutSubviews()
+
         guard priceCount == 0 else {
             self.text = priceCount.JPYString
             return
