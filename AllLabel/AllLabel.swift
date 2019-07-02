@@ -44,7 +44,6 @@ final class AllLabel: UILabel {
             self.text = priceCount.JPYString
             return
         }
-        super.layoutSubviews()
     }
 
     override func drawText(in rect: CGRect) {
