@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eHa-Yg-CRJ">
-                                <rect key="frame" x="5" y="100" width="310" height="250"/>
+                                <rect key="frame" x="5" y="120" width="310" height="250"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G41-gx-7sU" customClass="AllLabel" customModule="AllLabel" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="310" height="70"/>
@@ -128,8 +128,8 @@
                         <constraints>
                             <constraint firstItem="eHa-Yg-CRJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1R9-tE-vSd"/>
                             <constraint firstItem="eHa-Yg-CRJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="5fH-Fk-b8l"/>
+                            <constraint firstItem="eHa-Yg-CRJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="MMt-zJ-iwE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eHa-Yg-CRJ" secondAttribute="trailing" constant="5" id="YmL-hh-r4s"/>
-                            <constraint firstItem="eHa-Yg-CRJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-59" id="uev-Do-rtk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
