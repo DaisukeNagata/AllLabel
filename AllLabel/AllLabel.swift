@@ -53,6 +53,23 @@ final class AllLabel: UILabel {
         self.layer.borderWidth = borderWidth
         super.drawText(in: rect.inset(by: textInsets))
     }
+    
+    func textShadow(shadowBlurRadius: CGFloat, shadowColor: UIColor, shadowOffset: CGSize, textColor: UIColor) {
+
+        let shadow = NSShadow()
+        shadow.shadowColor = shadowColor
+        shadow.shadowBlurRadius = shadowBlurRadius
+        shadow.shadowOffset = shadowOffset
+        
+        let attrs: [NSAttributedString.Key: Any] = [
+            .font: self.font ?? UIFont.self,
+            .foregroundColor: textColor,
+            .shadow: shadow
+        ]
+
+        let attributedText = NSAttributedString(string: self.text ?? "", attributes: attrs)
+        self.attributedText = attributedText
+    }
 }
 
 extension AllLabel {
