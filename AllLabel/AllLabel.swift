@@ -76,36 +76,30 @@ extension AllLabel {
 
     @IBInspectable
     var topTextInset: CGFloat {
-        set { textInsets.top = newValue }
         get { return textInsets.top }
+        set { textInsets.top = newValue }
     }
 
     @IBInspectable
     var leftTextInset: CGFloat {
-        set { textInsets.left = newValue }
         get { return textInsets.left }
+        set { textInsets.left = newValue }
     }
 
     @IBInspectable
     var bottomTextInset: CGFloat {
-        set { textInsets.bottom = newValue }
         get { return textInsets.bottom }
+        set { textInsets.bottom = newValue }
     }
 
     @IBInspectable
     var rightTextInset: CGFloat {
-        set { textInsets.right = newValue }
         get { return textInsets.right }
+        set { textInsets.right = newValue }
     }
 }
 
 public extension Int {
-    private func formattedString(style: NumberFormatter.Style, localeIdentifier: String) -> String {
-        formatter.numberStyle = style
-        formatter.locale = Locale(identifier: localeIdentifier)
-        return formatter.string(from: self as NSNumber) ?? ""
-    }
-
     var formattedJPString: String {
         return formattedString(style: .decimal, localeIdentifier: "ja_JP")
     }
@@ -116,5 +110,10 @@ public extension Int {
 
     var USDString: String {
         return formattedString(style: .currency, localeIdentifier: "en_US")
+    }
+    private func formattedString(style: NumberFormatter.Style, localeIdentifier: String) -> String {
+        formatter.numberStyle = style
+        formatter.locale = Locale(identifier: localeIdentifier)
+        return formatter.string(from: self as NSNumber) ?? ""
     }
 }
